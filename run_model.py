@@ -49,8 +49,6 @@ predict_DDI(output_file=OUTPUT_PREDICT_DDI_PATH,
             threshold=THRESHOLD_MODEL)
 
 
-# RESULT PROCESSING
-
 DDI_result_supplement(input_file=OUTPUT_PREDICT_DDI_PATH,
                       interaction_info_file=INTERACTION_INFO_PATH,
                       output_file=OUTPUT_PREDICT_DDI_COMBINED_PATH)
@@ -69,3 +67,4 @@ summarize_prediction_outcome(result_file=ANNOTATED_RESULT_PATH,
 
 annotated_with_severity_result(input_file=ANNOTATED_RESULT_PATH,
                                output_file=ANNOTATED_SEVERITY_RESULT_PATH)
+

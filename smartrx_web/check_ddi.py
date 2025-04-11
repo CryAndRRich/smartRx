@@ -75,8 +75,21 @@ if drugs_data:
 else:
     st.info("Chưa có thông tin thuốc nào được thêm vào.")
 
-if st.button("check"):
+if st.button("Kiểm tra tương tác"):
     get_drug_input()
+
+    results = processing_result(input_file="data/Result/final_result.csv")
+    for res in results:
+        r = get_result_text(res)
+        if len(r.keys()) == 0:
+            continue
+        
+        with st.expander(r['drugs']):
+            st.markdown(f"**Tương tác bất lợi**: {r['sentence1']}")
+            st.markdown(f"**Nội dung bất lợi**: {r['sentence2']}")
+            st.markdown(f"**Tác dụng phụ**: {r['side_effect']}")
+            st.markdown(f"**Độ chính xác dự đoán**: {r['score']}")
+
 
 hide_streamlit_style = """
 <style>
